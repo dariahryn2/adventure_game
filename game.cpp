@@ -2,7 +2,6 @@
 #include <string>
 
 using namespace std;
-//
 
 // declaraties van functies
 void followMap();
@@ -10,6 +9,8 @@ void river();
 void tunnel();
 void startGame();
 void again();
+void light();
+void sign();
 
 int main() {
     cout << "=== The Forest ===\n";
@@ -58,14 +59,39 @@ void followMap() {
 }void river() {
     cout << "\nYou carefully cross the rope bridge...\n";
     cout << "On the other side, a glowing gate opens.\n";
-    cout << "You step through and see a room full of tresures.\n";
+    cout << "You step through and see a room full of treasures.\n";
     cout << "GOOD ENDING\n";
 }
 
 void tunnel() {
     cout << "\nYou enter the dark tunnel...\n";
-    cout << "Strange creatures surround you.\n";
-    cout << "Your flashlight dies. Darkness consumes you.\n";
+    cout << "You see two paths here. There is a sign with an arrow in front of you.\n";
+    cout << "1. Go left where the light shines dimly in the distance\n";
+    cout << "2. Go right where the sign points\n";
+    cout << "Choose your path (1 or 2): ";
+    int choice;
+    cin >> choice;
+
+    if (choice == 1) {
+        light();
+    } else if (choice == 2) {
+        sign();
+    } else {
+        cout << "You hesitate too long and vanish into the mist. Game over.\n";
+    }
+
+}
+
+void light() {
+    cout << "\nAfter a long walk you see where the light is coming from.\n";
+    cout << "It's a portal.\n";
+    cout << "You step through and wake up home. You didn't find the treasure, but at least you came back unharmed.\n";
+    cout << "GOOD ENDING\n";
+}
+void sign() {
+    cout << "\nYou end up in room with a chest.\n";
+    cout << "You open it and... it's empty.\n";
+    cout << "Someone has already been here. You passed away from sorrow.\n";
     cout << "BAD ENDING\n";
 }
 
